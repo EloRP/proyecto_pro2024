@@ -1,4 +1,4 @@
-package Proyecto_RPSLS.listaPartidas;
+package ListaPartidas;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,7 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 
-public class listaPartidas_Controller {
+public class ListaPartidas_controller {
 
     @FXML
     private Button botonVueltaMenu;
