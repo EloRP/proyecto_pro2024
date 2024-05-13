@@ -22,7 +22,7 @@ public class Login_controller {
 
     @FXML
     void loginMethod(ActionEvent event) {
-
+        
     }
 
     @FXML
