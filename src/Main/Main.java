@@ -6,8 +6,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+
 public class Main extends Application {
-    private GetPrimaryStage getPrimaryStage = new GetPrimaryStage();
+    private SwitchScene getPrimaryStage = new SwitchScene();
 
     public static void main(String[] args) {
         launch(args);
@@ -16,19 +17,16 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("PPTLS Game");
-        FXMLLoader loader =
-                new FXMLLoader(getClass().getResource("../Login/paginaLogin_proyecto.fxml"));
-        Parent root = loader.load();
 
-        // Guardar la primaryStage en una clase para poder acceder a ella desde cualquier controlador
-        GetPrimaryStage colocarStage = new GetPrimaryStage();
-        colocarStage.setPrimaryStage(primaryStage);
+        Parent root = FXMLLoader.load(getClass().getResource("../Login/paginaLogin_proyecto.fxml"));
+        
+        Scene scene = new Scene(root);
 
-        primaryStage.setScene(new Scene(root));
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 
-      public GetPrimaryStage getGetPrimaryStage() {
+    public SwitchScene getGetPrimaryStage() {
         return getPrimaryStage;
     }
 }
