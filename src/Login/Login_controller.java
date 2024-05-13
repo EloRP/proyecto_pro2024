@@ -22,12 +22,11 @@ public class Login_controller {
 
     @FXML
     void loginMethod(ActionEvent event) {
-        
+        Login_modelo.login(campoUsername.getText(), campoPassword.getText());
     }
 
     @FXML
     void signupMethod(ActionEvent event) {
-
+        Login_modelo.signup(campoUsername.getText(), campoPassword.getText());
     }
-
 }
