@@ -1,6 +1,8 @@
 package Login;
 
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,13 +25,14 @@ public class Login_modelo {
         } else {
             // Crear un Statement para ejecutar la consulta
             try (Statement consulta = conexionBD.createStatement()) {
+                // Hashear la contraseña
+                String hashedPassword = hashPassword(password);
                 // Crear la consulta
                 String sql = "SELECT * FROM Jugador WHERE username = '" + username
-                        + "' AND password = '" + password + "'";
+                        + "' AND password = '" + hashedPassword + "'";
                 consulta.executeQuery(sql);
                 // Si la consulta devuelve un resultado, el login es correcto
                 if (consulta.getResultSet().next()) {
-                    // TODO: COMPROBAR SI LA CONTRASEÑA ES CORRECTA CON EL HASH
                     login = true;
                 }
                 // Si la consulta no devuelve un resultado, el login es incorrecto
@@ -84,10 +87,10 @@ public class Login_modelo {
             } else {
                 // Crear un Statement para ejecutar la consulta
                 try (Statement consulta = conexionBD.createStatement()) {
-                    // TODO: HASHEAR LA CONTRASEÑA
+                    String hashedPassword = hashPassword(password);
                     // Crear la consulta
                     String sql = "INSERT INTO Jugador (username, password) VALUES ('" + username
-                            + "', '" + password + "')";
+                            + "', '" + hashedPassword + "')";
                     consulta.executeUpdate(sql);
                     // Si la consulta se ejecuta correctamente, el signup es correcto
                 } catch (SQLException e1) {
@@ -116,6 +119,29 @@ public class Login_modelo {
         }
         return signup;
 
+    }
+
+    // Método para hashear la contraseña hecho por ChatGPT
+    public static String hashPassword(String password) {
+        try {
+            // Crear un objeto MessageDigest con el algoritmo SHA-256
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            // Obtener el hash de la contraseña
+            byte[] hashBytes = digest.digest(password.getBytes());
+            // Convertir el hash a una representación hexadecimal
+            StringBuilder hexString = new StringBuilder();
+            for (byte hashByte : hashBytes) {
+                String hex = Integer.toHexString(0xff & hashByte);
+                if (hex.length() == 1) {
+                    hexString.append('0');
+                }
+                hexString.append(hex);
+            }
+            return hexString.toString();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     private static boolean comprobarUsuario(String username) {
