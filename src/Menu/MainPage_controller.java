@@ -1,7 +1,6 @@
 package Menu;
 
-import Modelo_sin_interfaz.SwitchScene;
-import javafx.collections.ObservableList;
+import Util.Util;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -32,18 +31,16 @@ public class MainPage_controller {
 
     @FXML
     void metodoBuscarPartida(ActionEvent event) {
-        ObservableList<String> partidas = Menu_modelo.buscarPartidas();
-        if (partidas != null) {
-            SwitchScene cambiarEscena = new SwitchScene();
-            cambiarEscena.cambiarEscena("../ListaPartidas/listaPartidas_proyecto.fxml",
-                    botonBuscarPartida, partidas);
-        } else {
-            System.out.println("Hubo un error al buscar las partidas");
-        }
+        Util cambiarEscena = new Util();
+        cambiarEscena.cambiarEscena("../ListaPartidas/listaPartidas_proyecto.fxml",
+                botonBuscarPartida);
+
     }
 
     @FXML
     void metodoCrearPartida(ActionEvent event) {
+        Util cambiarEscena = new Util();
+        cambiarEscena.cambiarEscena("../Partida/paginaPartida_proyecto.fxml", botonCrearPartida);
 
     }
 
@@ -51,19 +48,27 @@ public class MainPage_controller {
     void metodoEnsenharInfo(ActionEvent event) {
         Alert alertaInfo = new Alert(Alert.AlertType.INFORMATION);
         alertaInfo.setTitle("Información");
-        alertaInfo.setHeaderText("Piedra, peper, tijera, lagarto, spock");
+        alertaInfo.setHeaderText("Piedra, papel, tijera, lagarto, spock");
         alertaInfo.setContentText("Programa hecho por Eloy Rodal Pérez y Xabier Cendón Pazos");
         alertaInfo.showAndWait();
     }
 
     @FXML
     void metodoSalirJuego(ActionEvent event) {
-        SwitchScene cambiarEscena = new SwitchScene();
-        cambiarEscena.cambiarEscena("../Login/paginaLogin_proyecto.fxml", botonSalirJuego);
+        Util cambiarEscena = new Util();
+        cambiarEscena.cambiarEscena("../Login/paginaPartida_proyecto.fxml", botonSalirJuego);
     }
 
     @FXML
     void metodoMostrarEstadisticas(ActionEvent event) {
+        Util cambiarEscena = new Util();
+        cambiarEscena.cambiarEscena("../EstadisticasUser/paginaEstadisticasUser_proyecto.fxml",
+                botonEstadisticas);
+    }
 
+    @FXML
+    private void initialize() {
+        labelUsuario.setText(
+                "Bienvenid@. Actualmente estás en una sesión como " + Util.getUsername() + ".");
     }
 }

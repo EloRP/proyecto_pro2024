@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import Modelo_sin_interfaz.SwitchScene;
+import Util.Util;
 import javafx.scene.control.Alert;
 
 
@@ -63,7 +63,7 @@ public class Login_modelo {
             alert.showAndWait();
         }
         // Guardar el nombre de usuario en la variable estática para usarla en cualquier escena
-        SwitchScene.setUsername(username);
+        Util.setUsername(username);
         // Devolver el valor de la variable login
         return login;
     }
