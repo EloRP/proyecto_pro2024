@@ -21,7 +21,7 @@ public class SwitchScene {
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {
-           System.out.println("Error al cambiar de escena");
+            System.out.println("Error al cambiar de escena");
         }
 
 
@@ -43,6 +43,18 @@ public class SwitchScene {
         } catch (IOException e) {
             System.out.println("Error al cambiar de escena");
         }
+    }
+
+
+    // Variable estática para guardar el nombre de usuario para poder usarlo en cualquier escena
+    static String username;
+
+    public static void setUsername(String username) {
+        SwitchScene.username = username;
+    }
+
+    public static String getUsername() {
+        return SwitchScene.username;
     }
 
 }

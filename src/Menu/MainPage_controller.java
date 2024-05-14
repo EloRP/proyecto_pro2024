@@ -6,11 +6,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 public class MainPage_controller {
 
     @FXML
     private Button botonBuscarPartida;
+
+    @FXML
+    private Label labelUsuario;
 
     @FXML
     private Button botonCrearPartida;
@@ -20,6 +24,7 @@ public class MainPage_controller {
 
     @FXML
     private Button botonSalirJuego;
+    
 
     @FXML
     void metodoBuscarPartida(ActionEvent event) {

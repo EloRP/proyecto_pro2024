@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import Modelo_sin_interfaz.SwitchScene;
 import javafx.scene.control.Alert;
 
 
@@ -61,6 +62,8 @@ public class Login_modelo {
             alert.setContentText("El usuario o la contraseña son incorrectos.");
             alert.showAndWait();
         }
+        // Guardar el nombre de usuario en la variable estática para usarla en cualquier escena
+        SwitchScene.setUsername(username);
         // Devolver el valor de la variable login
         return login;
     }
