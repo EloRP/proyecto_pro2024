@@ -18,7 +18,7 @@ public class Login_controller {
     private Button botonSignup;
 
     @FXML
-    private PasswordField campoPassword;
+    private TextField campoPassword;
 
     @FXML
     private TextField campoUsername;
