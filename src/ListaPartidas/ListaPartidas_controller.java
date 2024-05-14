@@ -1,5 +1,7 @@
 package ListaPartidas;
 
+import Modelo_sin_interfaz.SwitchScene;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -13,7 +15,7 @@ public class ListaPartidas_controller {
     private Button botonVueltaMenu;
 
     @FXML
-    private ListView<?> listaPartidas;
+    private ListView<String> listaPartidas;
 
     @FXML
     private Label listaPartidasDatos;
@@ -25,7 +27,12 @@ public class ListaPartidas_controller {
 
     @FXML
     void metodoVolverMenu(ActionEvent event) {
+        SwitchScene cambiarEscena = new SwitchScene();
+        cambiarEscena.cambiarEscena("../Menu/paginaPrincipal_proyecto.fxml", botonVueltaMenu);
+    }
 
+    public void setListViewPartidas(ObservableList<String> partidas) {
+        listaPartidas.setItems(partidas);
     }
 
 }

@@ -1,7 +1,7 @@
 package Login;
 
 import java.io.IOException;
-import Main.SwitchScene;
+import Modelo_sin_interfaz.SwitchScene;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
