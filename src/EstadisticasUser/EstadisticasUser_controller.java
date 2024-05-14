@@ -1,4 +1,4 @@
-package Proyecto_RPSLS.estadisticasUser;
+package EstadisticasUser;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
