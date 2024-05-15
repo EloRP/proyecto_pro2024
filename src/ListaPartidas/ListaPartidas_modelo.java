@@ -10,7 +10,7 @@ import javafx.collections.ObservableList;
 
 public class ListaPartidas_modelo {
 
-       public static ObservableList<String> buscarPartidas() {
+    public static ObservableList<String> buscarPartidas() {
         // Crear una lista observable para almacenar las partidas
         ObservableList<String> partidas = FXCollections.observableArrayList();
 
@@ -23,10 +23,12 @@ public class ListaPartidas_modelo {
         } else {
             // Crear un Statement para ejecutar la consulta
             try (Statement consulta = conexionBD.createStatement()) {
-                // Crear la consulta para obtener las partidas que no tienen un ganador y que no fueron creadas por el usuario
+                // Crear la consulta para obtener las partidas que no tienen un ganador y que no
+                // fueron creadas por el usuario
                 String username = Util.getUsername();
                 String sql =
-                        "SELECT * FROM Partida WHERE JugadorGanador IS NULL and Jugador2 IS NULL AND Jugador1 != '" + username + "'";
+                        "SELECT * FROM Partida WHERE JugadorGanador IS NULL and Jugador2 IS NULL AND Jugador1 != '"
+                                + username + "'";
                 consulta.executeQuery(sql);
 
                 // Recorrer los resultados de la consulta y añadirlos a la lista de partidas
@@ -55,5 +57,8 @@ public class ListaPartidas_modelo {
         }
         return partidas;
     }
-    
+
+    public static boolean hayPartidas(ObservableList<String> partidas) {
+        return !partidas.isEmpty();
+    }
 }
