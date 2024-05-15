@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -40,9 +41,9 @@ public class Util {
         try {
             // Cargar la nueva escena desde el archivo FXML
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
-            root = loader.load();
             // Guardar los datos de la partida seleccionada
             guardarDatosPartida(partidaSeleccionada);
+            root = loader.load();
             // Establecer la nueva escena en el escenario
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
@@ -73,14 +74,42 @@ public class Util {
                     if (consulta.getResultSet().next()) {
                         datosPartida[0] = consulta.getResultSet().getString("ID");
                         datosPartida[1] = consulta.getResultSet().getString("Jugador1");
-                        datosPartida[2] =
-                                consulta.getResultSet().getString("EleccionJugador1");
+                        datosPartida[2] = consulta.getResultSet().getString("EleccionJugador1");
                     }
                     // Si la consulta no devuelve un resultado, el login es incorrecto
                 } catch (SQLException e1) {
                     System.out.println("Error al ejecutar la consulta");
                 }
             }
+            // Cerrar la conexión con la BD
+            conexionBD.close();
+        } catch (Exception e) {
+            System.out.println("Error al seleccionar la partida");
+        }
+    }
+
+    public static void guardarDatosJugador2PartidaEnBD(Partida partida) {
+        try {
+            Connection conexionBD = ConexionBD.BD.conectarBD();
+            // Si la conexión es nula, mostrar un mensaje de error
+            if (conexionBD == null) {
+                System.out.println("Error al conectar con la BD");
+                // Si la conexión no es nula, ejecutar la consulta
+            } else {
+                // Crear un Statement para ejecutar la consulta
+                try (Statement consulta = conexionBD.createStatement()) {
+                    // Crear la consulta
+                    String sql = "UPDATE Partida SET Jugador2 = '" + partida.jugador2
+                            + "', EleccionJugador2 = '" + partida.eleccionJugador2 + "' WHERE ID = "
+                            + partida.idPartida;
+                    consulta.executeUpdate(sql);
+                    // Si la consulta devuelve un resultado, el login es correcto
+                } catch (SQLException e1) {
+                    System.out.println("Error al ejecutar la consulta");
+                }
+            }
+            // Cerrar la conexión con la BD
+            conexionBD.close();
         } catch (Exception e) {
             System.out.println("Error al seleccionar la partida");
         }
@@ -95,6 +124,36 @@ public class Util {
 
     public static String getUsername() {
         return Util.username;
+    }
+
+
+
+    public static void guardarDatosJugadorGanadorPartidaEnBD(Partida partida, String username2) {
+        try {
+            Connection conexionBD = ConexionBD.BD.conectarBD();
+            // Si la conexión es nula, mostrar un mensaje de error
+            if (conexionBD == null) {
+                System.out.println("Error al conectar con la BD");
+                // Si la conexión no es nula, ejecutar la consulta
+            } else {
+                // Crear un Statement para ejecutar la consulta
+                try (Statement consulta = conexionBD.createStatement()) {
+                    // Crear la consulta
+                    if (username2 != null) {
+                        String sql = "UPDATE Partida SET JugadorGanador = '" + username2
+                                + "' WHERE ID = " + partida.idPartida;
+                        consulta.executeUpdate(sql);
+                    }
+                    // Si la consulta devuelve un resultado, el login es correcto
+                } catch (SQLException e1) {
+                    System.out.println("Error al ejecutar la consulta");
+                }
+            }
+            // Cerrar la conexión con la BD
+            conexionBD.close();
+        } catch (Exception e) {
+            System.out.println("Error al seleccionar la partida");
+        }
     }
 
 }
