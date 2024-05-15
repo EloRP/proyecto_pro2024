@@ -4,13 +4,13 @@ import Util.Util;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 
 public class ListaPartidas_controller {
+    public static ObservableList<String> partidas;
 
     @FXML
     private Button botonVueltaMenu;
@@ -27,9 +27,8 @@ public class ListaPartidas_controller {
 
         if (partidaSeleccionada != null) {
             Util cambiarEscena = new Util();
-            // Antes de llamar a cambiarEscena
-            cambiarEscena.cambiarEscena("../Partida/paginaPartida_proyecto.fxml", listaPartidas,
-                    partidaSeleccionada);
+            cambiarEscena.cambiarEscena("../ParticiparPartida/paginaPartida_proyecto.fxml",
+                    listaPartidas, partidaSeleccionada);
         }
     }
 
@@ -42,15 +41,7 @@ public class ListaPartidas_controller {
     @FXML
     private void initialize() {
         // Cargar las partidas disponibles, si no hay mostrar una alerta
-        ObservableList<String> partidas = ListaPartidas_modelo.buscarPartidas();
         listaPartidas.setItems(partidas);
-        if (!ListaPartidas_modelo.hayPartidas(partidas)) {
-            Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-            alerta.setTitle("Información");
-            alerta.setHeaderText("No hay partidas disponibles");
-            alerta.setContentText("Ningún jugador ha creado una partida.");
-            alerta.showAndWait();
-        }
     }
 
 }

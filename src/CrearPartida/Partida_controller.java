@@ -1,6 +1,5 @@
-package ParticiparPartida;
+package CrearPartida;
 
-import Util.Partida;
 import Util.Util;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -62,14 +61,6 @@ public class Partida_controller {
     void metodoVolverMenu(ActionEvent event) {
         Util cambiarEscena = new Util();
         cambiarEscena.cambiarEscena("../Menu/paginaPrincipal_proyecto.fxml", botonVueltaMenu);
-    }
-
-    @FXML
-    private void initialize() {
-        Partida partida =
-                new Partida(Util.datosPartida[0], Util.datosPartida[1], Util.datosPartida[2]);
-        
-        
     }
 
 }
