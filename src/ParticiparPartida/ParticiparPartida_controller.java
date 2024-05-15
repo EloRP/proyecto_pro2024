@@ -1,14 +1,12 @@
 package ParticiparPartida;
 
-import Util.Partida;
-import Util.Util;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
-public class ParticiparPartida_controller {
+public class Partida_controller {
 
     @FXML
     private ImageView botonSeleccionLagarto;
@@ -71,3 +69,4 @@ public class ParticiparPartida_controller {
     }
 
 }
+
