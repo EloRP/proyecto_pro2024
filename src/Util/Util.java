@@ -25,6 +25,7 @@ public class Util {
             primaryStage.show();
         } catch (IOException e) {
             System.out.println("Error al cambiar de escena");
+            e.printStackTrace();
         }
     }
 
