@@ -1,4 +1,4 @@
-package ParticiparPartida;
+package CrearPartida;
 
 import Util.Partida;
 import Util.Util;

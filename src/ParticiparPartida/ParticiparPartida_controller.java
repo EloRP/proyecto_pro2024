@@ -1,12 +1,15 @@
 package ParticiparPartida;
 
+import Util.Partida;
+import Util.Util;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
-public class Partida_controller {
+public class ParticiparPartida_controller {
 
     @FXML
     private ImageView botonSeleccionLagarto;
@@ -28,7 +31,15 @@ public class Partida_controller {
 
     @FXML
     void metodoOscurecerEleccion(MouseEvent event) {
+        // Obtener la imagen sobre la que pasó el ratón
+        ImageView imagen = (ImageView) event.getSource();
 
+        // Crear un efecto de desenfoque
+        ColorAdjust colorAdjust = new ColorAdjust();
+        colorAdjust.setBrightness(-0.3); 
+
+        // Aplicar el efecto de desenfoque a la imagen
+        imagen.setEffect(colorAdjust);
     }
 
     @FXML

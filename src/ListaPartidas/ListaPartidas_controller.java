@@ -28,7 +28,7 @@ public class ListaPartidas_controller {
         if (partidaSeleccionada != null) {
             Util cambiarEscena = new Util();
             // Antes de llamar a cambiarEscena
-            cambiarEscena.cambiarEscena("../Partida/paginaPartida_proyecto.fxml", listaPartidas,
+            cambiarEscena.cambiarEscena("../ParticiparPartida/paginaPartida_proyecto.fxml", listaPartidas,
                     partidaSeleccionada);
         }
     }

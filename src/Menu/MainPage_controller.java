@@ -48,7 +48,7 @@ public class MainPage_controller {
     void metodoEnsenharInfo(ActionEvent event) {
         Alert alertaInfo = new Alert(Alert.AlertType.INFORMATION);
         alertaInfo.setTitle("Información");
-        alertaInfo.setHeaderText("Piedra, papel, tijera, lagarto, spock");
+        alertaInfo.setHeaderText("Piedra, papel, tijera, lagarto, Spock");
         alertaInfo.setContentText("Programa hecho por Eloy Rodal Pérez y Xabier Cendón Pazos");
         alertaInfo.showAndWait();
     }
@@ -56,7 +56,7 @@ public class MainPage_controller {
     @FXML
     void metodoSalirJuego(ActionEvent event) {
         Util cambiarEscena = new Util();
-        cambiarEscena.cambiarEscena("../Login/paginaPartida_proyecto.fxml", botonSalirJuego);
+        cambiarEscena.cambiarEscena("../Login/paginaLogin_proyecto.fxml", botonSalirJuego);
     }
 
     @FXML
