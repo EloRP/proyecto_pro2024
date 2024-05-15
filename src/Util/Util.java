@@ -166,39 +166,6 @@ public class Util {
             } else {
                 // Crear un Statement para ejecutar la consulta
                 try (Statement consulta = conexionBD.createStatement()) {
-
-
-
-                    // Imprimir por consola el valor de las partidas jugadas y ganadas de los
-                    // jugadores antes de actualizar
-                    System.out.println("Partidas jugadas antes de actualizar: ");
-                    String sqlJugador1Antes =
-                            "SELECT GamesPlayed, GamesWon FROM Jugador WHERE Username = '"
-                                    + partida.getJugador1() + "'";
-                    consulta.executeQuery(sqlJugador1Antes);
-                    if (consulta.getResultSet().next()) {
-                        System.out.println(
-                                "Jugador 1: " + partida.getJugador1() + " - Partidas jugadas: "
-                                        + consulta.getResultSet().getInt("GamesPlayed")
-                                        + " - Partidas ganadas: "
-                                        + consulta.getResultSet().getInt("GamesWon"));
-                    }
-
-                    // Lo mismo para el jugador 2
-                    String sqlJugador2Antes =
-                            "SELECT GamesPlayed, GamesWon FROM Jugador WHERE Username = '"
-                                    + partida.getJugador2() + "'";
-                    consulta.executeQuery(sqlJugador2Antes);
-                    if (consulta.getResultSet().next()) {
-                        System.out.println(
-                                "Jugador 2: " + partida.getJugador2() + " - Partidas jugadas: "
-                                        + consulta.getResultSet().getInt("GamesPlayed")
-                                        + " - Partidas ganadas: "
-                                        + consulta.getResultSet().getInt("GamesWon"));
-                    }
-
-
-
                     // Actualizar las partidas jugadas de los jugadores
                     String sqlJugador1 =
                             "UPDATE Jugador SET GamesPlayed = GamesPlayed + 1 WHERE Username = '"
@@ -217,37 +184,6 @@ public class Util {
                                         + partida.getJugadorGanador() + "'";
                         consulta.executeUpdate(sqlGanador);
                     }
-
-
-
-                    // Imprimir por consola el valor de las partidas jugadas y ganadas de los
-                    // jugadores después de actualizar
-                    System.out.println("Partidas jugadas después de actualizar: ");
-                    String sqlJugador1Despues =
-                            "SELECT GamesPlayed, GamesWon FROM Jugador WHERE Username = '"
-                                    + partida.getJugador1() + "'";
-                    consulta.executeQuery(sqlJugador1Despues);
-                    if (consulta.getResultSet().next()) {
-                        System.out.println(
-                                "Jugador 1: " + partida.getJugador1() + " - Partidas jugadas: "
-                                        + consulta.getResultSet().getInt("GamesPlayed")
-                                        + " - Partidas ganadas: "
-                                        + consulta.getResultSet().getInt("GamesWon"));
-                    }
-                    // Lo mismo para el jugador 2
-                    String sqlJugador2Despues =
-                            "SELECT GamesPlayed, GamesWon FROM Jugador WHERE Username = '"
-                                    + partida.getJugador2() + "'";
-                    consulta.executeQuery(sqlJugador2Despues);
-                    if (consulta.getResultSet().next()) {
-                        System.out.println(
-                                "Jugador 2: " + partida.getJugador2() + " - Partidas jugadas: "
-                                        + consulta.getResultSet().getInt("GamesPlayed")
-                                        + " - Partidas ganadas: "
-                                        + consulta.getResultSet().getInt("GamesWon"));
-                    }
-
-
 
                     // Si la consulta devuelve un resultado, el login es correcto
                 } catch (SQLException e1) {
