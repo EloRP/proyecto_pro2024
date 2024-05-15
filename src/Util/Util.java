@@ -98,9 +98,9 @@ public class Util {
                 // Crear un Statement para ejecutar la consulta
                 try (Statement consulta = conexionBD.createStatement()) {
                     // Crear la consulta
-                    String sql = "UPDATE Partida SET Jugador2 = '" + partida.jugador2
-                            + "', EleccionJugador2 = '" + partida.eleccionJugador2 + "' WHERE ID = "
-                            + partida.idPartida;
+                    String sql = "UPDATE Partida SET Jugador2 = '" + partida.getJugador2()
+                            + "', EleccionJugador2 = '" + partida.getEleccionJugador2()
+                            + "' WHERE ID = " + partida.getIdPartida();
                     consulta.executeUpdate(sql);
                     // Si la consulta devuelve un resultado, el login es correcto
                 } catch (SQLException e1) {
@@ -140,7 +140,7 @@ public class Util {
                     // Crear la consulta
                     if (username2 != null) {
                         String sql = "UPDATE Partida SET JugadorGanador = '" + username2
-                                + "' WHERE ID = " + partida.idPartida;
+                                + "' WHERE ID = " + partida.getIdPartida();
                         consulta.executeUpdate(sql);
                     }
                     // Si la consulta devuelve un resultado, el login es correcto
@@ -154,5 +154,48 @@ public class Util {
             System.out.println("Error al seleccionar la partida");
         }
     }
+
+    // TODO ARREGLAR ESTE MÉTODO
+    public static void actualizarPartidasGanadasYJugadas(Partida partida) {
+        try {
+            Connection conexionBD = ConexionBD.BD.conectarBD();
+            // Si la conexión es nula, mostrar un mensaje de error
+            if (conexionBD == null) {
+                System.out.println("Error al conectar con la BD");
+                // Si la conexión no es nula, ejecutar la consulta
+            } else {
+                // Crear un Statement para ejecutar la consulta
+                try (Statement consulta = conexionBD.createStatement()) {
+                    // Actualizar las partidas jugadas de los jugadores
+                    String sqlJugador1 =
+                            "UPDATE Jugador SET GamesPlayed = GamesPlayed + 1 WHERE Username = '"
+                                    + partida.getJugador1() + "'";
+                    consulta.executeUpdate(sqlJugador1);
+
+                    String sqlJugador2 =
+                            "UPDATE Jugador SET GamesPlayed = GamesPlayed + 1 WHERE Username = '"
+                                    + partida.getJugador2() + "'";
+                    consulta.executeUpdate(sqlJugador2);
+
+                    // Si hay un ganador, actualizar las partidas ganadas de ese jugador
+                    if (partida.getJugadorGanador() != null) {
+                        String sqlGanador =
+                                "UPDATE Jugador SET GamesWon = GamesWon + 1 WHERE Username = '"
+                                        + partida.getJugadorGanador() + "'";
+                        consulta.executeUpdate(sqlGanador);
+                    }
+                    // Si la consulta devuelve un resultado, el login es correcto
+                } catch (SQLException e1) {
+                    System.out.println("Error al ejecutar la consulta");
+                }
+            }
+            // Cerrar la conexión con la BD
+            conexionBD.close();
+        } catch (Exception e) {
+            System.out.println("Error al seleccionar la partida");
+            e.printStackTrace();
+        }
+    }
+
 
 }

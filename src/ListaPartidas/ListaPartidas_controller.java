@@ -4,12 +4,10 @@ import Util.Util;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.effect.ColorAdjust;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 
 public class ListaPartidas_controller {
@@ -24,24 +22,34 @@ public class ListaPartidas_controller {
     @FXML
     private Label listaPartidasDatos;
 
+
+    // TODO IMPLEMENTAR LOS MÉTODOS DE OSCURECER Y DESOSCURECER LOS ÍTEMS DE LA LISTA, AHORA NO FUNCIONAN
     @FXML
-    void metodoDesoscurecerPartida(MouseDragEvent event) {
-
-
+    void metodoDesoscurecerPartida(MouseEvent event) {
+        // Obtener el ListView
+        ListView<?> listView = (ListView<?>) event.getSource();
+        // Obtener el ítem de la lista sobre el cual está el ratón
+        Node node = event.getPickResult().getIntersectedNode();
+        // Verificar si el nodo es un ítem de la lista
+        if (node != null && node != listView) {
+            // Cambiar la opacidad del ítem para desoscurecerlo
+            node.setOpacity(1.0);
+        }
     }
 
     @FXML
-    void metodoOscurecerPartida(MouseDragEvent event) {
-        // Obtener la imagen de la que salió el ratón
-        ImageView imagen = (ImageView) event.getSource();
-
-        // Crear un efecto de enfoque
-        ColorAdjust colorAdjust = new ColorAdjust();
-        colorAdjust.setBrightness(0);
-
-        // Aplicar el efecto de enfoque a la imagen
-        imagen.setEffect(colorAdjust);
+    void metodoOscurecerPartida(MouseEvent event) {
+        // Obtener el ListView
+        ListView<?> listView = (ListView<?>) event.getSource();
+        // Obtener el ítem de la lista sobre el cual está el ratón
+        Node node = event.getPickResult().getIntersectedNode();
+        // Verificar si el nodo es un ítem de la lista
+        if (node != null && node != listView) {
+            // Cambiar la opacidad del ítem para oscurecerlo
+            node.setOpacity(0.5);
+        }
     }
+
 
     @FXML
     void loadMatchMethod(MouseEvent event) {

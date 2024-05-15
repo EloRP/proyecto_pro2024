@@ -1,12 +1,12 @@
 package Util;
 
 public class Partida {
-    String idPartida;
-    String jugador1;
-    String jugador2;
-    String jugadorGanador;
-    Eleccion eleccionJugador1;
-    Eleccion eleccionJugador2;
+    private String idPartida;
+    private String jugador1;
+    private String jugador2;
+    private String jugadorGanador;
+    private Eleccion eleccionJugador1;
+    private Eleccion eleccionJugador2;
 
     public Partida(String idPartida, String jugador1, String eleccionJugador1) {
         this.idPartida = idPartida;

@@ -30,6 +30,7 @@ class ParticiparPartida_modelo {
         if (partida.getEleccionJugador1() == partida.getEleccionJugador2()) {
             // Guardar los datos del jugador ganador (empate) en la base de datos
             Util.guardarDatosJugadorGanadorPartidaEnBD(partida, null);
+            Util.actualizarPartidasGanadasYJugadas(partida);
             return resultado; // Devolver empate
         }
 
@@ -53,7 +54,7 @@ class ParticiparPartida_modelo {
             // Guardar los datos del jugador ganador (rival, el que ha creado la partida) en la base de datos
             Util.guardarDatosJugadorGanadorPartidaEnBD(partida, Util.datosPartida[1]);
         }
-
+        Util.actualizarPartidasGanadasYJugadas(partida);
         return resultado;
     }
 
