@@ -7,6 +7,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.effect.ColorAdjust;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 
 public class ListaPartidas_controller {
@@ -20,6 +23,25 @@ public class ListaPartidas_controller {
 
     @FXML
     private Label listaPartidasDatos;
+
+    @FXML
+    void metodoDesoscurecerPartida(MouseDragEvent event) {
+
+
+    }
+
+    @FXML
+    void metodoOscurecerPartida(MouseDragEvent event) {
+        // Obtener la imagen de la que salió el ratón
+        ImageView imagen = (ImageView) event.getSource();
+
+        // Crear un efecto de enfoque
+        ColorAdjust colorAdjust = new ColorAdjust();
+        colorAdjust.setBrightness(0);
+
+        // Aplicar el efecto de enfoque a la imagen
+        imagen.setEffect(colorAdjust);
+    }
 
     @FXML
     void loadMatchMethod(MouseEvent event) {
