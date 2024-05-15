@@ -10,19 +10,19 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="35.0" layoutY="16.0" prefHeight="50.0" prefWidth="325.0" text="Bienvenid@. Actualmente estás en una sesión como {USER}." />
-      <Label layoutX="479.0" layoutY="14.0" prefHeight="28.0" prefWidth="107.0" text="PPTLS">
+      <Label layoutX="462.0" layoutY="14.0" prefHeight="28.0" prefWidth="107.0" text="PPTLS">
          <font>
             <Font name="Impact" size="43.0" />
          </font>
       </Label>
       <Button fx:id="botonTopPartidas" layoutX="35.0" layoutY="68.0" mnemonicParsing="false" onAction="#metodoEnsenharTopGanadas" prefHeight="50.0" prefWidth="248.0" text="Top de jugadores por partidas ganadas" />
-      <Button fx:id="botonTopRatio" layoutX="338.0" layoutY="68.0" mnemonicParsing="false" onAction="#metodoEnsenharTopRatio" prefHeight="50.0" prefWidth="248.0" text="Top de jugadores por ratio de victorias" />
+      <Button fx:id="botonTopRatio" layoutX="321.0" layoutY="68.0" mnemonicParsing="false" onAction="#metodoEnsenharTopRatio" prefHeight="50.0" prefWidth="248.0" text="Top de jugadores por ratio de victorias" />
       <ListView fx:id="listaTopJugadores" layoutX="57.0" layoutY="152.0" prefHeight="200.0" prefWidth="487.0" />
       <HBox layoutX="57.0" layoutY="118.0" prefHeight="34.0" prefWidth="487.0">
          <children>
             <Label fx:id="estadisticasTopJugadores" prefHeight="53.0" prefWidth="509.0" text="{STATS}" />
          </children>
       </HBox>
-      <Button fx:id="botonVueltaMenu" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#metodoVolverMenu" text="VOLVER AL MENÚ" />
+      <Button fx:id="botonVueltaMenu" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#metodoVolverMenu" text="Volver al menú" />
    </children>
 </AnchorPane>

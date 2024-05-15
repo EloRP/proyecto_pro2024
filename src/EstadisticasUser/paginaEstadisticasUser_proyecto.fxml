@@ -11,6 +11,6 @@
       <ListView fx:id="listaEstadisticasUser" layoutX="57.0" layoutY="157.0" prefHeight="152.0" prefWidth="486.0" />
       <Button fx:id="botonTopPlayers" layoutX="461.0" layoutY="19.0" mnemonicParsing="false" onAction="#metodoEnsenharTopJugadores" text="TOP DE JUGADORES" />
       <Label fx:id="estadisticasJugador" layoutX="57.0" layoutY="116.0" prefHeight="41.0" prefWidth="486.0" text="{STATS}" />
-      <Button fx:id="botonVueltaMenu" layoutX="27.0" layoutY="344.0" mnemonicParsing="false" onAction="#metodoVolverMenu" text="VOLVER AL MENÚ" />
+      <Button fx:id="botonVueltaMenu" layoutX="29.0" layoutY="339.0" mnemonicParsing="false" onAction="#metodoVolverMenu" text="Volver al menú" />
    </children>
 </AnchorPane>

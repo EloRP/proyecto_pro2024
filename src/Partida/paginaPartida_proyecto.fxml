@@ -50,6 +50,6 @@
             <Image url="@imgs/Piedra.png" />
          </image>
       </ImageView>
-      <Button fx:id="botonVueltaMenu" layoutX="14.0" layoutY="351.0" mnemonicParsing="false" onAction="#metodoVolverMenu" text="VOLVER AL MENÚ" />
+      <Button fx:id="botonVueltaMenu" layoutX="14.0" layoutY="351.0" mnemonicParsing="false" onAction="#metodoVolverMenu" text="Volver al menú" />
    </children>
 </AnchorPane>
