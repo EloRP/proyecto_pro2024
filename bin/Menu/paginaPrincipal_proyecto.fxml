@@ -17,5 +17,6 @@
       <Button fx:id="botonBuscarPartida" layoutX="377.0" layoutY="188.0" mnemonicParsing="false" onAction="#metodoBuscarPartida" prefHeight="25.0" prefWidth="125.0" text="Buscar partida" />
       <Button fx:id="botonSalirJuego" layoutX="25.0" layoutY="351.0" mnemonicParsing="false" onAction="#metodoSalirJuego" prefHeight="25.0" prefWidth="79.0" text="Salir" />
       <Button fx:id="botonEstadisticas" layoutX="246.0" layoutY="237.0" mnemonicParsing="false" onAction="#metodoMostrarEstadisticas" text="Mostrar estadísticas" />
+      <Label layoutX="24.0" layoutY="16.0" prefHeight="50.0" prefWidth="328.0" text="ZOMBIE" />
    </children>
 </AnchorPane>
