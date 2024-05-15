@@ -5,7 +5,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EstadisticasUser.EstadisticasUser_controller">
    <children>
       <Label layoutX="14.0" layoutY="6.0" prefHeight="50.0" prefWidth="328.0" text="Estadísticas de {USER}" />
       <ListView fx:id="listaEstadisticasUser" layoutX="57.0" layoutY="157.0" prefHeight="152.0" prefWidth="486.0" />

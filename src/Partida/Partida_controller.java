@@ -1,5 +1,6 @@
 package Partida;
 
+import Util.Util;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -58,7 +59,8 @@ public class Partida_controller {
 
     @FXML
     void metodoVolverMenu(ActionEvent event) {
-
+        Util cambiarEscena = new Util();
+        cambiarEscena.cambiarEscena("../Menu/paginaPrincipal_proyecto.fxml", botonVueltaMenu);
     }
 
 }
