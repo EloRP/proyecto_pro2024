@@ -24,6 +24,7 @@ public class Main extends Application {
         Scene scene = new Scene(root);
 
         primaryStage.setScene(scene);
+        scene.getStylesheets().add(getClass().getResource("Util/styles.css").toExternalForm());
         primaryStage.setResizable(false);
         primaryStage.getIcons().add(new Image("imgs/Favicon.png"));
         primaryStage.show();

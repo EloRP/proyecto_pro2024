@@ -31,7 +31,7 @@ public class ListaPartidas_controller {
         // Obtener el ítem de la lista sobre el cual estaba el ratón
         Node node = event.getPickResult().getIntersectedNode();
         // Verificar si el nodo es un ítem de la lista
-        if (node instanceof Labeled) {
+        if (node instanceof Labeled && !(node instanceof Label)) {
             // Cambiar el estilo del nodo para oscurecerlo
             node.setStyle("-fx-background-color: #d3d3d3");
         }
@@ -42,7 +42,7 @@ public class ListaPartidas_controller {
         // Obtener el ítem de la lista sobre el cual estaba el ratón
         Node node = event.getPickResult().getIntersectedNode();
         // Verificar si el nodo es un ítem de la lista
-        if (node instanceof Labeled) {
+        if (node instanceof Labeled && !(node instanceof Label)) {
             // Restaurar el estilo del nodo para desoscurecerlo
             node.setStyle("-fx-background-color: transparent");
         }
