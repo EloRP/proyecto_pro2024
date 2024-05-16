@@ -7,13 +7,18 @@ import Util.Util;
 class ParticiparPartida_modelo {
     static Partida partida;
 
-    static void guardarDatosPartida(Eleccion eleccion) {
+    static void guardarDatosPartida(Eleccion eleccion) throws Exception {
         // Guardar los datos de la partida
         partida.setEleccionJugador2(eleccion);
         partida.setJugador2(Util.getUsername());
+        
 
         // Guardar los datos de la partida en la base de datos
         Util.guardarDatosJugador2PartidaEnBD(partida);
+
+        partida.setJugadorGanador(determinarGanador() == 1 ? partida.getJugador2() : determinarGanador() == 2 ? partida.getJugador1() : null);
+        Util.guardarDatosJugadorGanadorPartidaEnBD(partida);
+        Util.actualizarPartidasGanadasYJugadas(partida);
 
     }
 
@@ -28,8 +33,6 @@ class ParticiparPartida_modelo {
 
         // Verificar si las elecciones son iguales
         if (partida.getEleccionJugador1() == partida.getEleccionJugador2()) {
-            // Guardar los datos del jugador ganador (empate) en la base de datos
-            Util.guardarDatosJugadorGanadorPartidaEnBD(partida, null);
             return resultado; // Devolver empate
         }
 
@@ -47,13 +50,9 @@ class ParticiparPartida_modelo {
         if (relacionesVictoria[partida.getEleccionJugador2().ordinal()][partida.getEleccionJugador1().ordinal()]) {
             resultado = 1; // Jugador gana
             // Guardar los datos del jugador ganador (usuario) en la base de datos
-            Util.guardarDatosJugadorGanadorPartidaEnBD(partida, Util.getUsername()); 
         } else if (relacionesVictoria[partida.getEleccionJugador1().ordinal()][partida.getEleccionJugador2().ordinal()]) {
             resultado = 2; // Jugador pierde
-            // Guardar los datos del jugador ganador (rival, el que ha creado la partida) en la base de datos
-            Util.guardarDatosJugadorGanadorPartidaEnBD(partida, Util.datosPartida[1]);
         }
-
         return resultado;
     }
 

@@ -3,7 +3,6 @@ package Menu;
 import ListaPartidas.ListaPartidas_controller;
 import ListaPartidas.ListaPartidas_modelo;
 import Util.Util;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;

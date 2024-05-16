@@ -5,11 +5,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class BD {
-    final static String HOST = "iib.h.filess.io";
-    final static String DATABASE = "PPTLS_headingson";
-    final static String USER = "PPTLS_headingson";
-    final static String PASSWD = "e8cdef0b041ee2183dbc2e5e3a586ed891a1c92d";
-    final static String PORT = "3307";
+    final static String HOST = "ill.h.filess.io";
+    final static String DATABASE = "PPTLSBD_hurrybroke";
+    final static String USER = "PPTLSBD_hurrybroke";
+    final static String PASSWD = "32a0f9c5bf89d3f6be9f058a71b1e1a4f9a5b6a4";
+    final static String PORT = "3306";
 
 
     static public Connection conectarBD() {

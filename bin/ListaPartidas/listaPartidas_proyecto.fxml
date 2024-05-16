@@ -13,7 +13,7 @@
             <Font name="Impact" size="43.0" />
          </font>
       </Label>
-      <ListView fx:id="listaPartidas" layoutX="65.0" layoutY="137.0" onMousePressed="#loadMatchMethod" prefHeight="165.0" prefWidth="471.0" />
+      <ListView fx:id="listaPartidas" layoutX="65.0" layoutY="137.0" onMouseEntered="#metodoOscurecerPartida" onMouseExited="#metodoDesoscurecerPartida" onMousePressed="#loadMatchMethod" prefHeight="165.0" prefWidth="471.0" />
       <Button fx:id="botonVueltaMenu" layoutX="25.0" layoutY="341.0" mnemonicParsing="false" onAction="#metodoVolverMenu" text="Volver al menú" />
       <Label fx:id="listaPartidasDatos" layoutX="65.0" layoutY="96.0" prefHeight="41.0" prefWidth="486.0" text="Partidas disponibles:" />
    </children>
