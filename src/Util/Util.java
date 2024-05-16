@@ -9,11 +9,28 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class Util {
 
     public void cambiarEscena(String fxml, Button boton) {
+        Stage primaryStage;
+        Parent root;
+
+        try {
+            primaryStage = (Stage) boton.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource(fxml));
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException e) {
+            System.out.println("Error al cambiar de escena");
+            e.printStackTrace();
+        }
+    }
+
+    public void cambiarEscena(String fxml, ImageView boton) {
         Stage primaryStage;
         Parent root;
 
