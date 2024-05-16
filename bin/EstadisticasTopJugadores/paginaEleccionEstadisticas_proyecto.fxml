@@ -7,9 +7,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EleccionEstadisticas.EleccionEstadisticas_controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EstadisticasTopJugadores.EstadisticasTopJugadores_controller">
    <children>
-      <Label layoutX="35.0" layoutY="16.0" prefHeight="50.0" prefWidth="418.0" text="Bienvenid@. Actualmente estás en una sesión como {USER}." />
       <Label layoutX="462.0" layoutY="14.0" prefHeight="28.0" prefWidth="107.0" text="PPTLS">
          <font>
             <Font name="Impact" size="43.0" />
@@ -20,7 +19,7 @@
       <ListView fx:id="listaTopJugadores" layoutX="57.0" layoutY="152.0" prefHeight="200.0" prefWidth="487.0" />
       <HBox layoutX="57.0" layoutY="118.0" prefHeight="34.0" prefWidth="487.0">
          <children>
-            <Label fx:id="estadisticasTopJugadores" prefHeight="53.0" prefWidth="509.0" text="{STATS}" />
+            <Label prefHeight="53.0" prefWidth="509.0" text="Top de jugadores - Ratio de victorias - Partidas jugadas" />
          </children>
       </HBox>
       <Button fx:id="botonVueltaMenu" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#metodoVolverMenu" text="Volver al menú" />

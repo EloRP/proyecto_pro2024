@@ -34,7 +34,7 @@ public class EstadisticasUser_controller {
     void metodoEnsenharTopJugadores(ActionEvent event) {
         Util cambiarEscena = new Util();
         cambiarEscena.cambiarEscena(
-                "../EleccionEstadisticas/paginaEleccionEstadisticas_proyecto.fxml",
+                "../EstadisticasTopJugadores/paginaEleccionEstadisticas_proyecto.fxml",
                 botonTopPlayers);
     }
 

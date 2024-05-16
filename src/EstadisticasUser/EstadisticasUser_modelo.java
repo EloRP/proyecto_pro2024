@@ -7,6 +7,7 @@ import Util.Jugador;
 
 public class EstadisticasUser_modelo {
     static Jugador obtenerEstadisticas(String usuario) {
+        Jugador jugador = null;
         // Buscar en la base de datos las estadísticas del jugador
         try {
             Connection conexionBD = ConexionBD.BD.conectarBD();
@@ -22,12 +23,14 @@ public class EstadisticasUser_modelo {
                     consulta.executeQuery(sql);
                     // Si la consulta devuelve un resultado, el login es correcto
                     if (consulta.getResultSet().next()) {
-                        Jugador jugador = new Jugador(consulta.getResultSet().getString("Username"),
+                        jugador = new Jugador(consulta.getResultSet().getString("Username"),
                                 consulta.getResultSet().getInt("GamesWon"),
                                 consulta.getResultSet().getInt("GamesPlayed"));
-                        return jugador;
+
                     }
                     // Si la consulta no devuelve un resultado, el login es incorrecto
+                    // Cerrar la conexión con la base de datos
+                    conexionBD.close();
                     
                 } catch (SQLException e1) {
                     System.out.println("Error al ejecutar la consulta");
@@ -36,7 +39,7 @@ public class EstadisticasUser_modelo {
         } catch (Exception e) {
             System.out.println("Error al seleccionar la partida");
         }
-        return null;
+        return jugador;
     }
 
 }

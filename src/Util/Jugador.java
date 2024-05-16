@@ -42,5 +42,8 @@ public class Jugador {
         this.gamesPlayed = gamesPlayed;
     }
 
+    public String toString() {
+        return username + "     -     " + gamesWon + "     -     " + gamesPlayed;
+    }
 
 }
