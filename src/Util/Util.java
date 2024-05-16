@@ -87,6 +87,7 @@ public class Util {
         }
     }
 
+    // TODO Mover esto a ParticiparPartida_modelo y disminuir la cantidad de conexiones a la BD
     public static void guardarDatosJugador2PartidaEnBD(Partida partida) {
         try {
             Connection conexionBD = ConexionBD.BD.conectarBD();

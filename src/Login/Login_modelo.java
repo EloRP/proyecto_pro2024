@@ -4,9 +4,9 @@ package Login;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import Util.Util;
 import javafx.scene.control.Alert;
 
@@ -24,22 +24,23 @@ public class Login_modelo {
             System.out.println("Error al conectar con la BD");
             // Si la conexión no es nula, ejecutar la consulta
         } else {
-            // Crear un Statement para ejecutar la consulta
-            try (Statement consulta = conexionBD.createStatement()) {
+            // Crear un Statement para ejecutar la consulta parametrizada
+            try (PreparedStatement consulta = conexionBD.prepareStatement(
+                    "SELECT * FROM Jugador WHERE username = ? AND password = ?")) {
                 // Hashear la contraseña
                 String hashedPassword = hashPassword(password);
-                // Crear la consulta
-                String sql = "SELECT * FROM Jugador WHERE username = '" + username
-                        + "' AND password = '" + hashedPassword + "'";
-                consulta.executeQuery(sql);
+                // Establecer los parámetros de la consulta
+                consulta.setString(1, username);
+                consulta.setString(2, hashedPassword);
+                ResultSet rs = consulta.executeQuery();
                 // Si la consulta devuelve un resultado, el login es correcto
-                if (consulta.getResultSet().next()) {
+                if (rs.next()) {
                     login = true;
                 }
-                // Si la consulta no devuelve un resultado, el login es incorrecto
             } catch (SQLException e1) {
                 System.out.println("Error al ejecutar la consulta");
             }
+
             // Cerrar la conexión con la BD
             try {
                 conexionBD.close();
@@ -88,18 +89,21 @@ public class Login_modelo {
                 alert.showAndWait();
                 return signup;
             } else {
-                // Crear un Statement para ejecutar la consulta
-                try (Statement consulta = conexionBD.createStatement()) {
+                // Crear un Statement para ejecutar la consulta parametrizada
+                try (PreparedStatement consulta = conexionBD.prepareStatement("INSERT INTO Jugador (username, password) VALUES (?, ?)")) {
+                    // Hashear la contraseña
                     String hashedPassword = hashPassword(password);
-                    // Crear la consulta
-                    String sql = "INSERT INTO Jugador (username, password) VALUES ('" + username
-                            + "', '" + hashedPassword + "')";
-                    consulta.executeUpdate(sql);
+                    // Establecer los parámetros de la consulta
+                    consulta.setString(1, username);
+                    consulta.setString(2, hashedPassword);
+                    // Ejecutar la consulta
+                    consulta.executeUpdate();
                     // Si la consulta se ejecuta correctamente, el signup es correcto
                 } catch (SQLException e1) {
                     System.out.println("Error al ejecutar la consulta");
                     e1.printStackTrace();
                 }
+                
                 // Cerrar la conexión con la BD
                 try {
                     conexionBD.close();
@@ -154,15 +158,15 @@ public class Login_modelo {
         if (conexionBD == null) {
             System.out.println("Error al conectar con la BD");
         } else {
-            try (Statement consulta = conexionBD.createStatement()) {
-                String sql = "SELECT * FROM Jugador WHERE username = '" + username + "'";
-                ResultSet resultado = consulta.executeQuery(sql); // Ejecutar la consulta de
-                                                                  // selección
-
+            try (PreparedStatement consulta = conexionBD.prepareStatement("SELECT * FROM Jugador WHERE username = ?")) {
+                // Establecer el parámetro de la consulta parametrizada
+                consulta.setString(1, username);
+                // Ejecutar la consulta
+                ResultSet resultado = consulta.executeQuery();
                 // Verificar si la consulta devuelve algún resultado
                 if (resultado.next()) {
                     usuarioExistente = true; // El usuario ya existe
-                }
+              }
             } catch (SQLException e) {
                 System.out.println("Error al ejecutar la consulta: " + e.getMessage());
             } finally {
