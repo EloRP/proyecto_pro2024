@@ -2,11 +2,11 @@ package Util;
 
 public class Jugador {
     String username;
-    String gamesWon;
-    String gamesPlayed;
+    int gamesWon;
+    int gamesPlayed;
 
 
-    public Jugador(String username, String gamesWon, String gamesPlayed) {
+    public Jugador(String username, int gamesWon, int gamesPlayed) {
         this.username = username;
         this.gamesWon = gamesWon;
         this.gamesPlayed = gamesPlayed;
@@ -18,12 +18,12 @@ public class Jugador {
     }
 
 
-    public String getGamesWon() {
+    public int getGamesWon() {
         return gamesWon;
     }
 
 
-    public String getGamesPlayed() {
+    public int getGamesPlayed() {
         return gamesPlayed;
     }
 
@@ -33,12 +33,12 @@ public class Jugador {
     }
 
 
-    public void setGamesWon(String gamesWon) {
+    public void setGamesWon(int gamesWon) {
         this.gamesWon = gamesWon;
     }
 
 
-    public void setGamesPlayed(String gamesPlayed) {
+    public void setGamesPlayed(int gamesPlayed) {
         this.gamesPlayed = gamesPlayed;
     }
 
