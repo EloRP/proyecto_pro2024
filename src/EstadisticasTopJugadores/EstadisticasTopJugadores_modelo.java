@@ -57,7 +57,7 @@ public class EstadisticasTopJugadores_modelo {
                 // Crear un Statement para ejecutar la consulta
                 try (Statement consulta = conexionBD.createStatement()) {
                     // Crear la consulta, seleccionar los 10 jugadores con el mejor ratio de victorias, y si tienen el mismo ratio de victorias, ordenarlos por partidas jugadas
-                    String sql = "SELECT * FROM Jugador WHERE GamesPlayed > 0 ORDER BY GamesWon/GamesPlayed DESC, GamesPlayed DESC LIMIT 10";
+                    String sql = "SELECT * FROM Jugador WHERE GamesPlayed > 10 ORDER BY GamesWon/GamesPlayed DESC, GamesPlayed DESC LIMIT 10";
                     consulta.executeQuery(sql);
                     // Si la consulta devuelve un resultado, el login es correcto
                     int i = 0;

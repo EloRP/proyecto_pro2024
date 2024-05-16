@@ -19,7 +19,7 @@
       <ListView fx:id="listaTopJugadores" layoutX="57.0" layoutY="152.0" prefHeight="200.0" prefWidth="487.0" />
       <HBox layoutX="57.0" layoutY="118.0" prefHeight="34.0" prefWidth="487.0">
          <children>
-            <Label prefHeight="53.0" prefWidth="509.0" text="Top de jugadores - Ratio de victorias - Partidas jugadas" />
+            <Label fx:id="estadisticasTopJugadores" prefHeight="53.0" prefWidth="509.0" text="NO DEBERÍAS ESTAR LEYENDO ESTO" />
          </children>
       </HBox>
       <Button fx:id="botonVueltaMenu" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#metodoVolverMenu" text="Volver al menú" />

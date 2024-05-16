@@ -58,9 +58,7 @@ public class EstadisticasUser_controller {
         // Mostrar las partidas perdidas
         partidasPerdidas.setText(String.valueOf(usuario.getGamesPlayed() - usuario.getGamesWon()));
         // Mostrar el ratio de victorias con 2 decimales
-        double winRatio = (double) usuario.getGamesWon() / (double) usuario.getGamesPlayed();
-        String formattedWinRatio = String.format("%.2f", winRatio);
-        ratioVictorias.setText(formattedWinRatio + "%");
+        ratioVictorias.setText(usuario.getWinRate());
     }
 
 }
