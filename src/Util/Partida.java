@@ -14,6 +14,11 @@ public class Partida {
         this.eleccionJugador1 = Eleccion.valueOf(eleccionJugador1.toUpperCase());
     }
 
+    public Partida(String jugador1, String eleccionJugador1) {
+        this.jugador1 = jugador1;
+        this.eleccionJugador1 = Eleccion.valueOf(eleccionJugador1.toUpperCase());
+    }
+
     public void setJugador2(String username) {
         jugador2 = username;
     }

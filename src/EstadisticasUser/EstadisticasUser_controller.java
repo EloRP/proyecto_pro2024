@@ -1,5 +1,6 @@
 package EstadisticasUser;
 
+import Util.Jugador;
 import Util.Util;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,21 +17,39 @@ public class EstadisticasUser_controller {
     private Button botonVueltaMenu;
 
     @FXML
-    private Label estadisticasJugador;
+    private Label estadisticasDeJugador;
 
     @FXML
-    private ListView<?> listaEstadisticasUser;
+    private Label partidasGanadas;
+
+    @FXML
+    private Label partidasJugadas;
+
+    @FXML
+    private Label partidasPerdidas;
+
+    @FXML
+    private Label ratioVictorias;
 
     @FXML
     void metodoEnsenharTopJugadores(ActionEvent event) {
         Util cambiarEscena = new Util();
-        cambiarEscena.cambiarEscena("../EleccionEstadisticas/paginaEleccionEstadisticas_proyecto.fxml", botonTopPlayers);
+        cambiarEscena.cambiarEscena("../EleccionEstadisticas/paginaEleccionEstadisticas_proyecto.fxml",
+                botonTopPlayers);
     }
 
     @FXML
     void metodoVolverMenu(ActionEvent event) {
         Util cambiarEscena = new Util();
         cambiarEscena.cambiarEscena("../Menu/paginaPrincipal_proyecto.fxml", botonVueltaMenu);
+    }
+
+    @FXML
+    void initialize() {
+        // Obtener las estadísticas del jugador
+        Jugador usuario = EstadisticasUser_modelo.obtenerEstadisticas(Util.getUsername());
+        // Mostrar el nombre del jugador
+        estadisticasDeJugador.setText("Estadísticas de " + usuario.getUsername());
     }
 
 }
