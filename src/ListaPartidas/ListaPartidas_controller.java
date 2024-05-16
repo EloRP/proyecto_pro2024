@@ -24,8 +24,7 @@ public class ListaPartidas_controller {
     private Label listaPartidasDatos;
 
 
-    // TODO IMPLEMENTAR LOS MÉTODOS DE OSCURECER Y DESOSCURECER LOS ÍTEMS DE LA LISTA, AHORA NO
-    // FUNCIONAN
+    // TODO IMPLEMENTAR LOS MÉTODOS DE OSCURECER Y DESOSCURECER LOS ÍTEMS DE LA LISTA, AHORA NO FUNCIONAN
     @FXML
     void metodoOscurecerPartida(MouseEvent event) {
         // Obtener el ítem de la lista sobre el cual estaba el ratón
