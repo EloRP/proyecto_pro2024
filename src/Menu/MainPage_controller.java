@@ -52,7 +52,7 @@ public class MainPage_controller {
     @FXML
     void metodoCrearPartida(ActionEvent event) {
         Util cambiarEscena = new Util();
-        cambiarEscena.cambiarEscena("../Partida/paginaPartida_proyecto.fxml", botonCrearPartida);
+        cambiarEscena.cambiarEscena("../CrearPartida/paginaPartida_proyecto.fxml", botonCrearPartida);
 
     }
 
