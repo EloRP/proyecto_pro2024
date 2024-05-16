@@ -36,6 +36,7 @@ public class Util {
             primaryStage = (Stage) boton.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource(fxml));
             Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {
@@ -52,6 +53,7 @@ public class Util {
             primaryStage = (Stage) boton.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource(fxml));
             Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {
@@ -73,6 +75,7 @@ public class Util {
             root = loader.load();
             // Establecer la nueva escena en el escenario
             Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {

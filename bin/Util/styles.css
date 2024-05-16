@@ -1,0 +1,27 @@
+.button {
+    -fx-background-color: #dcdddd;
+    -fx-text-fill: #000000;
+    -fx-font-family: "Comic Sans MS";
+}
+
+.button:hover {
+    -fx-background-color: #ADD8E6;
+}
+
+.label {
+    -fx-text-fill: #3f3d55;
+    -fx-font-family: "Comic Sans MS";
+}
+
+.list-view {
+    -fx-background-color: #D3D3D3;
+}
+
+.list-view:hover {
+    -fx-background-color: #C0C0C0;
+}
+
+
+.root {
+    -fx-background-color: #d8edff;
+}
