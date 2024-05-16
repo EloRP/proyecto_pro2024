@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Labeled;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 
@@ -23,32 +24,31 @@ public class ListaPartidas_controller {
     private Label listaPartidasDatos;
 
 
-    // TODO IMPLEMENTAR LOS MÉTODOS DE OSCURECER Y DESOSCURECER LOS ÍTEMS DE LA LISTA, AHORA NO FUNCIONAN
+    // TODO IMPLEMENTAR LOS MÉTODOS DE OSCURECER Y DESOSCURECER LOS ÍTEMS DE LA LISTA, AHORA NO
+    // FUNCIONAN
     @FXML
-    void metodoDesoscurecerPartida(MouseEvent event) {
-        // Obtener el ListView
-        ListView<?> listView = (ListView<?>) event.getSource();
-        // Obtener el ítem de la lista sobre el cual está el ratón
+    void metodoOscurecerPartida(MouseEvent event) {
+        // Obtener el ítem de la lista sobre el cual estaba el ratón
         Node node = event.getPickResult().getIntersectedNode();
         // Verificar si el nodo es un ítem de la lista
-        if (node != null && node != listView) {
-            // Cambiar la opacidad del ítem para desoscurecerlo
-            node.setOpacity(1.0);
+        if (node instanceof Labeled) {
+            // Cambiar el estilo del nodo para oscurecerlo
+            node.setStyle("-fx-background-color: #d3d3d3");
         }
     }
 
     @FXML
-    void metodoOscurecerPartida(MouseEvent event) {
-        // Obtener el ListView
-        ListView<?> listView = (ListView<?>) event.getSource();
-        // Obtener el ítem de la lista sobre el cual está el ratón
+    void metodoDesoscurecerPartida(MouseEvent event) {
+        // Obtener el ítem de la lista sobre el cual estaba el ratón
         Node node = event.getPickResult().getIntersectedNode();
         // Verificar si el nodo es un ítem de la lista
-        if (node != null && node != listView) {
-            // Cambiar la opacidad del ítem para oscurecerlo
-            node.setOpacity(0.5);
+        if (node instanceof Labeled) {
+            // Restaurar el estilo del nodo para desoscurecerlo
+            node.setStyle("-fx-background-color: transparent");
         }
     }
+    
+
 
 
     @FXML
