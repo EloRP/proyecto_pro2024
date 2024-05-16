@@ -43,7 +43,15 @@ public class Jugador {
     }
 
     public String toString() {
-        return username + "     -     " + gamesWon + "     -     " + gamesPlayed;
+        return username + "       -              " + gamesPlayed + "           -            "
+                + gamesWon + "           -           " + (gamesPlayed - gamesWon)
+                + "           -          " + getWinRate();
     }
 
+
+    public String getWinRate() {
+        double winRatio = ((double) gamesWon / (gamesPlayed != 0 ? (double) gamesPlayed : 1));
+        String formattedWinRatio = String.format("%.2f", winRatio);
+        return formattedWinRatio + "%";
+    }
 }

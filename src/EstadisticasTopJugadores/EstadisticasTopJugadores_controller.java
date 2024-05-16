@@ -20,7 +20,7 @@ public class EstadisticasTopJugadores_controller {
     private Button botonVueltaMenu;
 
     @FXML
-    private Label a;
+    private Label estadisticasTopJugadores;
 
     @FXML
     private ListView<Jugador> listaTopJugadores;
@@ -29,11 +29,15 @@ public class EstadisticasTopJugadores_controller {
     void metodoEnsenharTopGanadas(ActionEvent event) {
         // Vaciar la lista de jugadores
         listaTopJugadores.getItems().clear();
+        // Cambiar el texto de la etiqueta
+        estadisticasTopJugadores.setText(
+                "Usuario - Partidas jugadas - Partidas ganadas - Partidas perdidas - Ratio de victorias");
         // Obtener las estadísticas de los jugadores
-        Jugador[] jugadores = EstadisticasTopJugadores_modelo.obtenerTopJugadoresPorWinRate();
+        Jugador[] jugadores = EstadisticasTopJugadores_modelo.obtenerTopJugadores();
         // Mostrar las estadísticas de los jugadores
         for (Jugador jugador : jugadores) {
-            listaTopJugadores.getItems().add(jugador);
+            if (jugador != null)
+                listaTopJugadores.getItems().add(jugador);
         }
     }
 
@@ -42,10 +46,11 @@ public class EstadisticasTopJugadores_controller {
         // Vaciar la lista de jugadores
         listaTopJugadores.getItems().clear();
         // Obtener las estadísticas de los jugadores
-        Jugador[] jugadores = EstadisticasTopJugadores_modelo.obtenerTopJugadores();
-        // Mostrar las estadísticas de los jugadores
+        Jugador[] jugadores = EstadisticasTopJugadores_modelo.obtenerTopJugadoresPorWinRate();
+        // Mostrar las estadísticas de los jugadores con el win rate
         for (Jugador jugador : jugadores) {
-            listaTopJugadores.getItems().add(jugador);
+            if (jugador != null)
+                listaTopJugadores.getItems().add(jugador);
         }
     }
 
