@@ -20,6 +20,9 @@ public class EstadisticasTopJugadores_controller {
     private Button botonVueltaMenu;
 
     @FXML
+    private Label a;
+
+    @FXML
     private ListView<Jugador> listaTopJugadores;
 
     @FXML
