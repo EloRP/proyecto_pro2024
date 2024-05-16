@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CrearPartida.CrearPartida_controller">
    <children>
-      <Label layoutX="481.0" layoutY="14.0" prefHeight="29.0" prefWidth="105.0" text="PPTLS">
+      <Label layoutX="464.0" layoutY="14.0" prefHeight="54.0" prefWidth="216.0" text="PPTLS">
          <font>
             <Font name="Impact" size="43.0" />
          </font>

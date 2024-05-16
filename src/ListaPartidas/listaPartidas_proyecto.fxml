@@ -8,7 +8,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ListaPartidas.ListaPartidas_controller">
    <children>
-      <Label layoutX="485.0" layoutY="14.0" prefHeight="37.0" prefWidth="102.0" text="PPTLS">
+      <Label layoutX="455.0" layoutY="14.0" prefHeight="54.0" prefWidth="328.0" text="PPTLS">
          <font>
             <Font name="Impact" size="43.0" />
          </font>
