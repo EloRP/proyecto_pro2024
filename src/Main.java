@@ -1,6 +1,3 @@
-
-
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,7 +17,7 @@ public class Main extends Application {
         primaryStage.setTitle("PPTLS Game");
 
         Parent root = FXMLLoader.load(getClass().getResource("Login/paginaLogin_proyecto.fxml"));
-        
+
         Scene scene = new Scene(root);
 
         primaryStage.setScene(scene);
