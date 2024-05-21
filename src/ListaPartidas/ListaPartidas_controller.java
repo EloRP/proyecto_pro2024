@@ -4,12 +4,11 @@ import Util.Util;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.Labeled;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.control.ListCell;
 
 public class ListaPartidas_controller {
     public static ObservableList<String> partidas;
@@ -22,32 +21,6 @@ public class ListaPartidas_controller {
 
     @FXML
     private Label listaPartidasDatos;
-
-
-    // TODO IMPLEMENTAR LOS MÉTODOS DE OSCURECER Y DESOSCURECER LOS ÍTEMS DE LA LISTA, AHORA NO FUNCIONAN
-    @FXML
-    void metodoOscurecerPartida(MouseEvent event) {
-        // Obtener el ítem de la lista sobre el cual estaba el ratón
-        Node node = event.getPickResult().getIntersectedNode();
-        // Verificar si el nodo es un ítem de la lista
-        if (node instanceof Labeled && !(node instanceof Label)) {
-            // Cambiar el estilo del nodo para oscurecerlo
-            node.setStyle("-fx-background-color: #d3d3d3");
-        }
-    }
-
-    @FXML
-    void metodoDesoscurecerPartida(MouseEvent event) {
-        // Obtener el ítem de la lista sobre el cual estaba el ratón
-        Node node = event.getPickResult().getIntersectedNode();
-        // Verificar si el nodo es un ítem de la lista
-        if (node instanceof Labeled && !(node instanceof Label)) {
-            // Restaurar el estilo del nodo para desoscurecerlo
-            node.setStyle("-fx-background-color: transparent");
-        }
-    }
-    
-
 
 
     @FXML
@@ -71,6 +44,27 @@ public class ListaPartidas_controller {
     private void initialize() {
         // Cargar las partidas disponibles, si no hay mostrar una alerta
         listaPartidas.setItems(partidas);
-    }
 
+        // Establecer el comportamiento de la lista de partidas
+        listaPartidas.setCellFactory(lv -> {
+            ListCell<String> cell = new ListCell<>();
+
+            // Al pasar el ratón sobre un ítem de la lista, este se oscurece
+            cell.setOnMouseEntered(e -> {
+                listaPartidas.getSelectionModel().select(cell.getIndex());
+            });
+
+            // Al salir del ítem de la lista, este se desoscurece
+            cell.setOnMouseExited(e -> {
+                listaPartidas.getSelectionModel().clearSelection();
+            });
+
+            // Enlazar el texto del ítem con el texto del ítem de la lista
+            cell.textProperty().bind(cell.itemProperty());
+
+            return cell;
+        });
+    }
 }
+
+
